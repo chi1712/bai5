@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm UCLN của 2 số</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tìm UCLN của 2 số</h1>
+
+    <div>
+        <input type="number" id="a" placeholder="Nhập số a" />
+        <input type="number" id="b" placeholder="Nhập số b" />
+        <button onclick="timUCLN()">Tìm UCLN</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Hàm tìm UCLN của hai số
+        function timUCLN() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            let ucln = 1;
+
+            // Tìm UCLN sử dụng vòng lặp for
+            for (let i = 1; i <= Math.min(a, b); i++) {
+                if (a % i === 0 && b % i === 0) {
+                    ucln = i;
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'UCLN của ' + a + ' và ' + b + ' là: ' + ucln;
+        }
+    </script>
+</body>
+</html>
